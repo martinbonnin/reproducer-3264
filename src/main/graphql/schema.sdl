@@ -1,0 +1,30 @@
+type DailyXSummary {
+    id: String
+    xArchitecture: XArchitectureInfo
+    xQuality: XQuality!
+}
+
+type Query {
+    xSummary: DailyXSummary
+}
+
+type XArchitectureInfo {
+  someNotImportantField: String!
+  xStages: [xProperty!]!
+}
+
+type xProperty {
+  xStage: XStage!
+}
+
+enum XStage {
+  Unknown
+  HappyStage
+  SadStage
+  OkStage
+}
+
+enum XQuality {
+    Good
+    Poor
+}

@@ -1,0 +1,20 @@
+
+query GetXSummaryQuery(
+  $includeDailyXSummary: Boolean!
+) {
+  dailyXSummary: xSummary
+  @include(if: $includeDailyXSummary) {
+    id
+    ... on DailyXSummary {
+      xArchitecture {
+        someNotImportantField
+        # xStages conflicts with the enum below. Use an alias to workaround this
+        # dailyXStages: xStages {
+        xStages {
+          xStage
+        }
+      }
+      xQuality
+    }
+  }
+}
